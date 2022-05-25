@@ -13,7 +13,7 @@
 }
 
 .text-area-label {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   margin: 0 0 1em 0;
 }
@@ -22,11 +22,12 @@
   padding: 12px;
   width: 8em;
   border: none;
-  background-color: rgb(57, 191, 57);
+  background-color: rgb(94, 208, 94);
   color: #fff;
   margin-top: 1.5rem;
   font-weight: bold;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 
 .send-prompt-button:hover {
@@ -38,16 +39,17 @@
   padding: 12px;
   width: 8em;
   border: none;
-  background-color: rgb(249, 66, 66);
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   cursor: pointer;
   margin-top: 1.5rem;
   margin-right: 18rem;
+  font-family: "Poppins", sans-serif;
 }
 .reset-prompt-button:hover {
-  background-color: rgb(167, 13, 13);
+  background-color: rgb(220, 61, 61);
   transition: all 0.5s;
+  color: #fff;
 }
 
 .buttons {
@@ -66,22 +68,48 @@
 
 .card {
   max-width: 470px;
-  height: 5rem;
+  height: 8rem;
   margin: 1.5rem auto;
   background-color: rgb(245, 245, 245);
   padding: 1rem;
 }
 
 .card-prompt {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  font-weight: bold;
   padding: 0.5rem;
+  font-weight: 500;
 }
 
 .card-response {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  font-weight: bold;
   padding: 0.5rem;
+  font-weight: 500;
+}
+
+.card-prompt-prev {
+  margin-left: 1rem;
+  padding: 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-response-prev {
+  margin-left: 1rem;
+  padding: 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.prompt-data {
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.response-data {
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
