@@ -1,15 +1,15 @@
 const Prompt = () => {
   return (
     <div className="prompt">
-      <label className="text-area-label" for="enter-prompt">
+      {/* <label className="text-area-label" for="enter-prompt">
         Enter a prompt to begin:
-      </label>
+      </label> */}
       <textarea
         rows="15"
         cols="60"
         id="enter-prompt"
         name="prompt"
-        placeholder="Write a yelp review about the best Taco place in Toronto.."
+        placeholder="Enter your prompt here.."
       />
       <div className="buttons">
         <button type="submit" className="send-prompt-button">
