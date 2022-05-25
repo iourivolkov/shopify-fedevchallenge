@@ -1,8 +1,8 @@
-const Card = () => {
+const Card = ({ prompt, response }) => {
   return (
     <div className="card">
-      <div className="card-prompt">Prompt:</div>
-      <div className="card-response">Response:</div>
+      <div className="card-prompt">Prompt: {prompt}</div>
+      <div className="card-response">Response: {response}</div>
     </div>
   );
 };
