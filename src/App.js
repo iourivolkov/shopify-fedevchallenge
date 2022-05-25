@@ -1,5 +1,6 @@
 import "./App.css";
 import Heading from "./components/Heading";
+import PastPrompts from "./components/PastPrompts";
 import Prompt from "./components/Prompt";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Heading title={appName} />
       <Prompt />
+      <PastPrompts />
     </div>
   );
 }

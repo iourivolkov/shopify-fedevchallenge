@@ -15,6 +15,7 @@
 .text-area-label {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
+  margin: 0 0 1em 0;
 }
 
 .send-prompt-button {
