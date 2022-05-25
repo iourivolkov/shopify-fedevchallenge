@@ -10,7 +10,7 @@ const Prompt = () => {
         id="enter-prompt"
         name="prompt"
         placeholder="Write a yelp review about the best Taco place in Toronto.."
-      ></textarea>
+      />
       <div className="buttons">
         <button type="submit" className="send-prompt-button">
           submit

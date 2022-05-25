@@ -56,3 +56,32 @@
   align-items: center;
   flex-direction: row-reverse;
 }
+
+.heading-two {
+  font-family: "Koulen", sans-serif;
+  text-align: center;
+  margin-top: 2.5em;
+  font-size: 1.5em;
+}
+
+.card {
+  max-width: 470px;
+  height: 5rem;
+  margin: 1.5rem auto;
+  background-color: rgb(232, 232, 232);
+  padding: 1rem;
+}
+
+.card-prompt {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.card-response {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
