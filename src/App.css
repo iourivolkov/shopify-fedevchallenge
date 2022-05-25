@@ -1,4 +1,57 @@
 .appName {
   text-align: center;
   font-family: "Koulen", sans-serif;
+  font-size: 3em;
+  margin-top: 1em;
+}
+
+.prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-area-label {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+
+.send-prompt-button {
+  padding: 12px;
+  width: 8em;
+  border: none;
+  background-color: rgb(57, 191, 57);
+  color: #fff;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.send-prompt-button:hover {
+  background-color: green;
+  transition: all 0.5s;
+}
+
+.reset-prompt-button {
+  padding: 12px;
+  width: 8em;
+  border: none;
+  background-color: rgb(249, 66, 66);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  margin-right: 18rem;
+}
+.reset-prompt-button:hover {
+  background-color: rgb(167, 13, 13);
+  transition: all 0.5s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
 }
