@@ -68,7 +68,7 @@
 
 .card {
   max-width: 470px;
-  height: 8rem;
+  height: 6.5rem;
   margin: 1.5rem auto;
   background-color: rgb(245, 245, 245);
   padding: 1rem;
@@ -92,6 +92,7 @@
   margin-left: 1rem;
   padding: 0.5rem 0;
   font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
 .card-response-prev {
@@ -112,4 +113,8 @@
   flex-direction: row;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+}
+
+.card-content {
+  width: 100%;
 }
