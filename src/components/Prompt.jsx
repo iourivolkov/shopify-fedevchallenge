@@ -4,9 +4,13 @@ const Prompt = () => {
       <label className="text-area-label" for="enter-prompt">
         Enter a prompt to begin:
       </label>
-      <textarea rows="15" cols="60" id="enter-prompt">
-        Write a yelp review about the best Taco..
-      </textarea>
+      <textarea
+        rows="15"
+        cols="60"
+        id="enter-prompt"
+        name="prompt"
+        placeholder="Write a yelp review about the best Taco place in Toronto.."
+      ></textarea>
       <div className="buttons">
         <button type="submit" className="send-prompt-button">
           submit
