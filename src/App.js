@@ -1,7 +1,13 @@
 import "./App.css";
+import Heading from "./components/Heading";
 
 function App() {
-  return <div className="App"></div>;
+  const appName = "AI FUN";
+  return (
+    <div className="App">
+      <Heading title={appName} />
+    </div>
+  );
 }
 
 export default App;
