@@ -1,15 +1,31 @@
 import { useState } from "react";
+import { axios } from "axios";
 
 const Prompt = () => {
   const [promptText, setPromptText] = useState("");
+
+  const response = () => {
+    axios.get().then((res) => {
+      console.log("response ", res);
+    });
+  };
 
   const handlePromptTextChange = (e) => {
     setPromptText(e.target.value);
   };
 
+  const submitPrompt = (e) => {
+    e.preventDefault();
+    const newPrompt = {
+      question: promptText,
+      response: response,
+    };
+    console.log(newPrompt);
+  };
+
   return (
     <div className="prompt">
-      <form>
+      <form onSubmit={submitPrompt}>
         {/* <label className="text-area-label" for="enter-prompt">
         Enter a prompt to begin:
       </label> */}

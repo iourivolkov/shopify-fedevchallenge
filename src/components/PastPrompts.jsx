@@ -9,9 +9,6 @@ const PastPrompts = () => {
     <div>
       <h3 className="heading-two">Responses</h3>
       <Card prompt={prompt} response={response} />
-      <Card />
-      <Card />
-      <Card />
     </div>
   );
 };
