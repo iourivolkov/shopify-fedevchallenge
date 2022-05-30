@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Prompt = () => {
   return (
     <div className="prompt">
@@ -14,9 +16,6 @@ const Prompt = () => {
       <div className="buttons">
         <button type="submit" className="send-prompt-button">
           submit
-        </button>
-        <button type="submit" className="reset-prompt-button">
-          reset
         </button>
       </div>
     </div>

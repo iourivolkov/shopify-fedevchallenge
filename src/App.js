@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Heading title={appName} />
-      <Prompt />
+      <Prompt text={prompt} />
       <PastPrompts />
     </div>
   );
