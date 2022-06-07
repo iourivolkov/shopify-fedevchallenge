@@ -14,10 +14,13 @@ function App() {
 
   const submitPrompt = (e) => {
     e.preventDefault();
+
+    axios.get();
+
     const newPrompt = {
       question: promptText,
       // response -> res.data from api call
-      response: response,
+      response: AIresponse,
     };
     console.log(newPrompt);
   };
