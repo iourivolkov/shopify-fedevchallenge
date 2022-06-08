@@ -8,7 +8,6 @@ import axios from "axios";
 function App() {
   const [promptText, setPromptText] = useState("");
   const [responseData, setResponseData] = useState("");
-  // const [pastResponses, setPastResponses] = useState([]);
   const [isResponseGiven, setIsResponseGiven] = useState(false);
 
   const handlePromptTextChange = (e) => {
@@ -41,6 +40,7 @@ function App() {
         const response = res.data.choices[0].text;
         setResponseData(response);
         setIsResponseGiven(true);
+        setPromptText("");
         console.log(responseData);
       })
       .catch((err) => {
