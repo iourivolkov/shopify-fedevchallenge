@@ -8,6 +8,8 @@ import axios from "axios";
 function App() {
   const [promptText, setPromptText] = useState("");
   const [responseData, setResponseData] = useState("");
+  // const [pastResponses, setPastResponses] = useState([]);
+  const [isResponseGiven, setIsResponseGiven] = useState(false);
 
   const handlePromptTextChange = (e) => {
     setPromptText(e.target.value);
@@ -19,6 +21,7 @@ function App() {
       model: "text-curie-001",
       prompt: promptText,
       temperature: 0.4,
+      max_tokens: 50,
     });
 
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -37,6 +40,7 @@ function App() {
       .then((res) => {
         const response = res.data.choices[0].text;
         setResponseData(response);
+        setIsResponseGiven(true);
         console.log(responseData);
       })
       .catch((err) => {
@@ -61,7 +65,9 @@ function App() {
         submit={submitPrompt}
         enterText={handlePromptTextChange}
       />
-      <PastPrompts response={responseData} prompt={promptText} />
+      {isResponseGiven && (
+        <PastPrompts response={responseData} prompt={promptText} />
+      )}
     </div>
   );
 }

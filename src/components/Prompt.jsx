@@ -23,9 +23,6 @@ const Prompt = ({ submit, enterText, text }) => {
   return (
     <div className="prompt">
       <form>
-        {/* <label className="text-area-label" for="enter-prompt">
-        Enter a prompt to begin:
-      </label> */}
         <textarea
           rows="15"
           cols="60"
