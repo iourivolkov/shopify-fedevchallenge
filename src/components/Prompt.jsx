@@ -1,4 +1,4 @@
-const Prompt = () => {
+const Prompt = ({ submit, enterText, text }) => {
   // const [promptText, setPromptText] = useState("");
 
   // const response = () => {
@@ -22,7 +22,7 @@ const Prompt = () => {
 
   return (
     <div className="prompt">
-      <form onSubmit={submitPrompt}>
+      <form onSubmit={submit}>
         {/* <label className="text-area-label" for="enter-prompt">
         Enter a prompt to begin:
       </label> */}
@@ -32,8 +32,8 @@ const Prompt = () => {
           id="enter-prompt"
           name="prompt"
           placeholder="Enter your prompt here.."
-          onChange={handlePromptTextChange}
-          value={promptText}
+          onChange={enterText}
+          value={text}
         />
         <div className="buttons">
           <button type="submit" className="send-prompt-button">

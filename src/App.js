@@ -15,21 +15,29 @@ function App() {
   const submitPrompt = (e) => {
     e.preventDefault();
 
-    axios.get();
-
-    const newPrompt = {
-      question: promptText,
-      // response -> res.data from api call
-      response: AIresponse,
+    const config = {
+      params: {
+        model: "text-curie-001",
+        prompt: promptText,
+        temperature: 0.3,
+        max_tokens: 5,
+      },
     };
-    console.log(newPrompt);
+
+    axios
+      .post(`https://api.openai.com/v1/completions`, config)
+      .then((res) => console.log(res.data));
   };
 
   const appName = "AI FUN";
   return (
     <div className="App">
       <Heading title={appName} />
-      <Prompt text={prompt} />
+      <Prompt
+        text={promptText}
+        submit={submitPrompt}
+        enterText={handlePromptTextChange}
+      />
       <PastPrompts />
     </div>
   );
