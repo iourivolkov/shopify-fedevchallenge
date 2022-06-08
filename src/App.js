@@ -61,7 +61,7 @@ function App() {
         submit={submitPrompt}
         enterText={handlePromptTextChange}
       />
-      <PastPrompts response={responseData} />
+      <PastPrompts response={responseData} prompt={promptText} />
     </div>
   );
 }
