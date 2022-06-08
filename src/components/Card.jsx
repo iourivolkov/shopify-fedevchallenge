@@ -1,4 +1,4 @@
-const Card = ({ prompt, response }) => {
+const Card = ({ prompt, responseData }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -8,7 +8,9 @@ const Card = ({ prompt, response }) => {
         </div>
         <div className="response-data">
           <div className="card-response">Response:</div>
-          <div className="card-reponse-prev">{response}</div>
+          <div className="card-reponse-prev">
+            {responseData.choices[0].text}
+          </div>
         </div>
       </div>
     </div>

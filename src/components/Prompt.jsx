@@ -22,7 +22,7 @@ const Prompt = ({ submit, enterText, text }) => {
 
   return (
     <div className="prompt">
-      <form onSubmit={submit}>
+      <form>
         {/* <label className="text-area-label" for="enter-prompt">
         Enter a prompt to begin:
       </label> */}
@@ -36,7 +36,7 @@ const Prompt = ({ submit, enterText, text }) => {
           value={text}
         />
         <div className="buttons">
-          <button type="submit" className="send-prompt-button">
+          <button onClick={submit} type="submit" className="send-prompt-button">
             submit
           </button>
         </div>

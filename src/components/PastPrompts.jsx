@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const PastPrompts = () => {
+const PastPrompts = ({ responseData }) => {
   const prompt = "Write a review about the best drinks bar in Toronto..";
 
   const response =
@@ -8,7 +8,7 @@ const PastPrompts = () => {
   return (
     <div>
       <h3 className="heading-two">Responses</h3>
-      <Card prompt={prompt} response={response} />
+      <Card prompt={prompt} response={response} responseData={responseData} />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import axios from "axios";
 
 function App() {
   const [promptText, setPromptText] = useState("");
+  const [responseData, setResponseData] = useState("");
 
   const handlePromptTextChange = (e) => {
     setPromptText(e.target.value);
@@ -14,29 +15,40 @@ function App() {
 
   const submitPrompt = (e) => {
     e.preventDefault();
-
     const data = JSON.stringify({
       model: "text-curie-001",
       prompt: promptText,
-      temperature: 0.8,
+      temperature: 0.4,
     });
+
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     const config = {
       method: "post",
       url: "https://api.openai.com/v1/completions",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       data: data,
     };
 
     axios(config)
       .then((res) => {
-        console.log(res.data);
+        const response = res.data.choices[0].text;
+        setResponseData(response);
+        console.log(responseData);
       })
       .catch((err) => {
-        console.log(err);
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else if (err.request) {
+          console.log(err.request);
+        } else {
+          console.log("ERROR!", err.message);
+        }
       });
   };
 
@@ -49,7 +61,7 @@ function App() {
         submit={submitPrompt}
         enterText={handlePromptTextChange}
       />
-      <PastPrompts />
+      {/* <PastPrompts responseData={response} /> */}
     </div>
   );
 }
