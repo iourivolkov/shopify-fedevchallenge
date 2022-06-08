@@ -3,7 +3,7 @@ import Heading from "./components/Heading";
 import PastPrompts from "./components/PastPrompts";
 import Prompt from "./components/Prompt";
 import { useState } from "react";
-import { axios } from "axios";
+import axios from "axios";
 
 function App() {
   const [promptText, setPromptText] = useState("");
@@ -15,18 +15,29 @@ function App() {
   const submitPrompt = (e) => {
     e.preventDefault();
 
+    const data = JSON.stringify({
+      model: "text-curie-001",
+      prompt: promptText,
+      temperature: 0.8,
+    });
+
     const config = {
-      params: {
-        model: "text-curie-001",
-        prompt: promptText,
-        temperature: 0.3,
-        max_tokens: 5,
+      method: "post",
+      url: "https://api.openai.com/v1/completions",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
       },
+      data: data,
     };
 
-    axios
-      .post(`https://api.openai.com/v1/completions`, config)
-      .then((res) => console.log(res.data));
+    axios(config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const appName = "AI FUN";
