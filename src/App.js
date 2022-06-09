@@ -7,8 +7,10 @@ import axios from "axios";
 
 function App() {
   const [promptText, setPromptText] = useState("");
+  // const [submittedPrompt, setSubmittedPrompt] = useState("");
   const [responseData, setResponseData] = useState("");
   const [isResponseGiven, setIsResponseGiven] = useState(false);
+  // const [pastResponses, setPastResponses] = useState([]);
 
   const handlePromptTextChange = (e) => {
     setPromptText(e.target.value);
@@ -37,6 +39,7 @@ function App() {
 
     axios(config)
       .then((res) => {
+        console.log(res.data);
         const response = res.data.choices[0].text;
         setResponseData(response);
         setIsResponseGiven(true);
