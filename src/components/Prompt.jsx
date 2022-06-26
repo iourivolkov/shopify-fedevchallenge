@@ -1,28 +1,7 @@
 const Prompt = ({ submit, enterText, text }) => {
-  // const [promptText, setPromptText] = useState("");
-
-  // const response = () => {
-  //   axios.get().then((res) => {
-  //     console.log("response ", res);
-  //   });
-  // };
-
-  // const handlePromptTextChange = (e) => {
-  //   setPromptText(e.target.value);
-  // };
-
-  // const submitPrompt = (e) => {
-  //   e.preventDefault();
-  //   const newPrompt = {
-  //     question: promptText,
-  //     response: response,
-  //   };
-  //   console.log(newPrompt);
-  // };
-
   return (
     <div className="prompt">
-      <form>
+      <form onSubmit={submit}>
         <textarea
           rows="15"
           cols="60"
@@ -33,7 +12,7 @@ const Prompt = ({ submit, enterText, text }) => {
           value={text}
         />
         <div className="buttons">
-          <button onClick={submit} type="submit" className="send-prompt-button">
+          <button type="submit" className="send-prompt-button">
             submit
           </button>
         </div>
