@@ -4,7 +4,6 @@ import PastPrompts from "./components/PastPrompts";
 import Prompt from "./components/Prompt";
 import { useState } from "react";
 import axios from "axios";
-const { v4: uuidv4 } = require("uuid");
 
 function App() {
   const [promptText, setPromptText] = useState("");
@@ -41,20 +40,18 @@ function App() {
 
     // @todo -> create function such that when you click the submit button, you save the input text to an array and then use that saved input to recall the prompt
 
-    const userId = uuidv4();
-
     axios(config)
       .then((res) => {
         console.log(res.data);
         const aiResponseObject = {
-          id: userId,
+          id: res.data.id,
           prompt: promptText,
           response: res.data.choices[0].text,
         };
 
         // once aiResponseObject is created, add this object to the array of prompts
-
-        console.log(aiResponseObject);
+        setPromptList({ promptList: [...promptList, aiResponseObject] });
+        console.log(promptList);
         const response = res.data.choices[0].text;
         setResponseData(response);
         setIsResponseGiven(true);
