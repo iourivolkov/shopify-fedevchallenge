@@ -8,6 +8,7 @@ import axios from "axios";
 function App() {
   const [promptText, setPromptText] = useState("");
   const [responseData, setResponseData] = useState("");
+  const [responseObject, setResponseObject] = useState({});
   const [isResponseGiven, setIsResponseGiven] = useState(false);
 
   // initialize empty array to store generated prompts
@@ -42,18 +43,20 @@ function App() {
 
     axios(config)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         const aiResponseObject = {
           id: res.data.id,
           prompt: promptText,
           response: res.data.choices[0].text,
         };
+        console.log(aiResponseObject);
+
+        setResponseObject(aiResponseObject);
 
         // once aiResponseObject is created, add this object to the array of prompts
-        setPromptList({ promptList: [...promptList, aiResponseObject] });
-        console.log(promptList);
-        const response = res.data.choices[0].text;
-        setResponseData(response);
+
+        // const response = res.data.choices[0].text;
+        // setResponseData(response);
         setIsResponseGiven(true);
         // currently prompt is set to promptText -> when textarea gets cleared, the prompt gets cleared as well
         setPromptText("");
@@ -82,9 +85,7 @@ function App() {
         submit={submitPrompt}
         enterText={handlePromptTextChange}
       />
-      {isResponseGiven && (
-        <PastPrompts response={responseData} prompt={promptText} />
-      )}
+      {isResponseGiven && <PastPrompts responseObj={responseObject} />}
     </div>
   );
 }
