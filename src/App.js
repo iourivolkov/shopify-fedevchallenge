@@ -4,15 +4,14 @@ import PastPrompts from "./components/PastPrompts";
 import Prompt from "./components/Prompt";
 import { useState } from "react";
 import axios from "axios";
+import Card from "./components/Card";
 
 function App() {
   const [promptText, setPromptText] = useState("");
   const [responseData, setResponseData] = useState("");
   const [responseObject, setResponseObject] = useState({});
   const [isResponseGiven, setIsResponseGiven] = useState(false);
-
-  // initialize empty array to store generated prompts
-  const [promptList, setPromptList] = useState([]);
+  const [promptArray, setPromptArray] = useState([]);
 
   const handlePromptTextChange = (e) => {
     setPromptText(e.target.value);
@@ -39,11 +38,8 @@ function App() {
       data: data,
     };
 
-    // @todo -> create function such that when you click the submit button, you save the input text to an array and then use that saved input to recall the prompt
-
     axios(config)
       .then((res) => {
-        // console.log(res.data);
         const aiResponseObject = {
           id: res.data.id,
           prompt: promptText,
@@ -51,12 +47,18 @@ function App() {
         };
         console.log(aiResponseObject);
 
-        setResponseObject(aiResponseObject);
+        setPromptArray((current) => [aiResponseObject, ...current]);
+        console.log(promptArray);
+
+        // aiResponseObject is not an array -> cant map over it
+        // return promptArray?.map((item) => {
+        //   <Card key={item.id} prompt={item.prompt} response={item.response} />;
+        // });
 
         // once aiResponseObject is created, add this object to the array of prompts
 
-        // const response = res.data.choices[0].text;
-        // setResponseData(response);
+        const response = res.data.choices[0].text;
+        setResponseData(response);
         setIsResponseGiven(true);
         // currently prompt is set to promptText -> when textarea gets cleared, the prompt gets cleared as well
         setPromptText("");
@@ -85,6 +87,9 @@ function App() {
         submit={submitPrompt}
         enterText={handlePromptTextChange}
       />
+      {promptArray?.map((item) => {
+        <Card key={item.id} prompt={item.prompt} response={item.response} />;
+      })}
       {isResponseGiven && <PastPrompts responseObj={responseObject} />}
     </div>
   );
